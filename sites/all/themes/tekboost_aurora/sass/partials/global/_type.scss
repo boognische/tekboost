@@ -1,0 +1,27 @@
+body, p {
+  //font-family: $font-body;
+  //font-size: $base-font-size;
+  //line-height: $base-line-height;
+  color: $font_color_base;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+  &:link {
+    color: $link-color;
+  }
+
+  &:visited {
+    color: $link-color;
+  }
+
+  &:hover,
+  &:focus {
+  }
+
+  &:active,
+  &.active {
+    color: $link-color;
+  }
+}

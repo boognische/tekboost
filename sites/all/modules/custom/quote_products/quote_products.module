@@ -1,0 +1,159 @@
+<?php
+function quote_products_menu() {
+  $menu = array();
+  $menu['admin/config/content/quotable-products'] = array(
+    'title' => 'Quotable Products Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('quote_products_settings'),
+    'access arguments' => array('administer quote products ownership'),
+    'type' => MENU_CALLBACK,
+  );
+  return $menu;
+}
+
+function quote_products_permission() {
+  return array(
+	  'administer quote products ownership' => array(
+		  'title' => t('Quote Products'),
+			'description' => t('Configure quote products ownership.'),
+		),
+	);
+}
+
+function quote_products_settings() {
+  $form = array();
+  $content_types = node_type_get_types();
+  $form['fieldset_content_types'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Content Types'
+  );
+  foreach ($content_types as $type => $settings) {
+    $form['fieldset_content_types']['quote_products_' . $type] = array(
+      '#type' => 'checkbox',
+      '#default_value' => variable_get('quote_products_' . $type, 0),
+      '#title' => $settings->name,
+      '#description' => t('Prevent checkout and use quote request for all ":name" nodes?', array(':name' => $settings->name)),
+    );
+  }
+  $form['fieldset_webform_id'] = array(
+    '#type' => 'fieldset',
+    '#title' => '',
+  );
+  $form['fieldset_webform_id']['quote_products_webform_id'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('quote_products_webform_id', NULL),
+    //'#required' => TRUE,
+    '#title' => 'Quote Request Webform ID',
+    '#description' => t('ID of the Webform users will be directed to if any items in their cart are quotable products.'),
+  );
+  $form['fieldset_messaging'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Messaging',
+  );
+  $form['fieldset_messaging']['quote_products_message_quotecart_no_products'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('quote_products_message_quotecart_no_products', t('Select and add products from our catalog to your cart or enter details into the comment field below.')),
+    '#title' => 'Quote Form with Empty Cart',
+    '#description' => t('This custom message is displayed on the quote request form when no quotable product in the cart.'),
+  );
+  return system_settings_form($form);
+}
+
+
+function quote_products_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form_id);
+  $quote_product_webform_id = variable_get('quote_products_webform_id', NULL);
+  
+  switch($form_id) {
+    case 'views_form_commerce_cart_form_default' : // Default cart form
+      //dpm($form);
+      $quote_products = FALSE;
+      foreach($form_state['line_items'] as $line_item) {
+        //dpm($line_item);
+        if(isset($line_item->data['context'])) {
+          $entity = node_load($line_item->data['context']['entity']['entity_id']);
+          if (variable_get('quote_products_' . $entity->type, 0) === 1) {
+          //if($entity->type == 'quotable_product') {
+            $quote_products = TRUE;
+          }
+        }
+      }
+      if($quote_products) { // Cart has line items ID'd as quotable products
+        // Remove access to the checkout button
+        $form['actions']['checkout']['#access'] = FALSE;
+        
+        // Add link to the 'request a quote' form
+        $form['actions']['getquote'] = array(
+          '#markup' => l(t('Request Quote'), 'content/request-quote'),
+        );
+        //dpm($form);
+      }
+      break;
+    case 'commerce_checkout_form_checkout' :
+      //dpm($form_state);
+      $quote_products = FALSE;
+      foreach($form_state['build_info']['args'][0]->commerce_line_items['und'] as $line_item) {
+        //dpm($line_item);
+        $entity = node_load($line_item['line_item_id']);
+        $line_item_details = commerce_line_item_load($line_item['line_item_id']);
+        //dpm($line_item_details);
+        if(isset($line_item_details->data['context'])) {
+          $node = node_load($line_item_details->data['context']['entity']['entity_id']);
+          //dpm($node);
+          if (variable_get('quote_products_' . $node->type, 0) === 1) {
+          //if($entity->type == 'quotable_product') {
+            $quote_products = TRUE;
+          }
+        }
+      }
+      if($quote_products) {
+        drupal_goto('cart');
+      }
+      break;
+    case $quote_product_webform_id : // 'Request a Quote' form.
+      global $user;
+      $cart_order = commerce_cart_order_load($user->uid);
+      if($cart_order && count($cart_order->commerce_line_items)) {
+        $quote_cart_products = array();
+        foreach($cart_order->commerce_line_items['und'] as $line_item) {
+          $line_item_deets = commerce_line_item_load($line_item['line_item_id']);
+          //dpm($line_item_deets);
+          if(isset($line_item_deets->data['context'])) {
+            $entity = node_load($line_item_deets->data['context']['entity']['entity_id']);
+            //dpm($entity);
+            if (variable_get('quote_products_' . $entity->type, 0) === 1) {
+              $quote_cart_products[] =  array('title' => $entity->title, 'PLU' => $line_item_deets->line_item_label, 'qty' => $line_item_deets->quantity );
+            }
+          }
+        }
+        if(count($quote_cart_products)) {
+          $products = '<ul>';
+          foreach($quote_cart_products as $quote_product) {
+            $products .= '<li>'.$quote_product['title'].' ['.$quote_product['PLU'].'] Quantity: '.$quote_product['qty'].'</li>';
+            $form['submitted']['quotable_products']['#value'] .= $quote_product['title'].' ['.$quote_product['PLU'].'] Quantity: '.$quote_product['qty']. ", ";
+          }
+          $products .= '</ul>';
+          $form['submitted']['quotable_items'] = array(
+            '#type' => 'item',
+            '#title' => t('Please send me a quote on the following products'), // TODO: add this as a variable set in quotable products admin.
+            '#markup' => $products,
+          );
+         /* $form['submitted']['testing'] = array(
+            '#title' => 'test',
+            '#type' => 'textarea',
+            '#default_value' => 'this is a test',
+          );
+          * 
+          */
+          //$form['submitted']['quotable_products']['#value'] = $products;
+
+          $form['submitted']['quotable_items']['#weight'] = -1000;
+          $form['submitted']['order_id']['#value'] = $cart_order->order_id;
+        }
+      } else {
+        drupal_set_message(variable_get('quote_products_message_quotecart_no_products'),'notice');
+        //drupal_goto('<front>');
+      }
+      break;
+  }
+}

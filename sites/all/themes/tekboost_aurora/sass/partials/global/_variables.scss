@@ -1,0 +1,24 @@
+////////////////////////
+// Variables Partials
+//
+// All of your variables should go in this file.
+////////////////////////
+
+// Basic Grid Settings
+$total-columns: 12;
+$column-width: 62px;
+$gutter-width: 20px;
+$grid-padding: 12px;
+
+//alternative layout breakpoints
+$tablet: 40em 12;
+$desktop: 55em 12;
+
+$white: #fff;
+$blue-dark: #095CB1;
+$gray-01: #EAEAEA;
+$gray-02: #666;
+$gray-03: #f2f2f2;
+$font_color_base: #464646;
+
+$link-color: $blue-dark;

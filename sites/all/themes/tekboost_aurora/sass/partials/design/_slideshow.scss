@@ -1,0 +1,20 @@
+.view-homepage-slideshow {
+  position: relative;
+  .views-slideshow-controls-bottom {
+    bottom: 25px;
+    position: absolute;
+    right: 15px;
+    z-index: 1000;
+    .views-slideshow-pager-field-item {
+      float: left;
+      margin-right: 7px;
+      height: 8px;
+      width: 8px;
+      text-indent: -9999px;
+      background: url('../images/navigator.png') no-repeat 0 0;
+      &.active {
+        background: url('../images/navigator.png') no-repeat 0 -16px;
+      }
+    }
+  }
+}

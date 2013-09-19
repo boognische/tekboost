@@ -1,0 +1,30 @@
+body {
+  @include font-body-copy;
+  background: $gray-01;
+}
+
+.main-container, .footer-container, .home-content-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 990px;
+  background: url('../images/bg_main-container.png') repeat-y 0 0;
+}
+
+#site-bottom {
+  margin: 0 auto;
+  text-align: center;
+  width: 990px;
+  height: 20px;
+  background: url('../images/bg_bottom.png') no-repeat 0 0;
+}
+
+.page-wrapper, .home-content {
+  text-align: left;
+}
+
+.pane-page-content {
+  padding: 0 10px;
+}
+
+
+

@@ -1,0 +1,16 @@
+////////////////////////
+// Design Partials
+//
+// Seperate your layout from design, building sub folders and partials
+//  in this folder, with everything being imported, in casading order,
+//  into this file.
+//
+// All styling, non box model properties go here
+////////////////////////
+
+@import 'header';
+@import 'global';
+@import 'main-menu';
+@import 'slideshow';
+@import 'footer';
+@import 'left-col';

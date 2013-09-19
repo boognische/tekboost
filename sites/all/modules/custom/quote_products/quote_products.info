@@ -1,0 +1,5 @@
+name = Quote Products
+description = Submit quote request if quotable products are in the cart.
+core = 7.x
+package = Tekboost
+configure = admin/config/content/quotable-products
