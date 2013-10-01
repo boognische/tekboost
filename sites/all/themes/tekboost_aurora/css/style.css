@@ -313,6 +313,7 @@ body {
   background: url("../images/bg_block_footer_title.png") no-repeat scroll left top transparent;
   margin-bottom: 0;
   padding: 3px 0 22px 25px;
+  text-align: left;
   line-height: 22px;
   font-size: 18px;
   color: #EEEEEE;
