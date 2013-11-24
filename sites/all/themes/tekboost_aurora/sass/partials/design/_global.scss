@@ -26,5 +26,19 @@ body {
   padding: 0 10px;
 }
 
+.region-main-content {
+  position: relative;
+}
 
-
+.page-taxonomy-term {
+  .pane-page-title {
+    h1 {
+      
+    }
+  }
+  .pane-taxonomy-term-field-image-logo {
+    float: right;
+    padding: 0 15px 15px;
+    clear: right;
+  }
+}

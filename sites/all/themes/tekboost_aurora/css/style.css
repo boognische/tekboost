@@ -236,6 +236,16 @@ body {
   padding: 0 10px;
 }
 
+.region-main-content {
+  position: relative;
+}
+
+.page-taxonomy-term .pane-taxonomy-term-field-image-logo {
+  float: right;
+  padding: 0 15px 15px;
+  clear: right;
+}
+
 #superfish-1 {
   width: 100%;
   background: #095cb1;
