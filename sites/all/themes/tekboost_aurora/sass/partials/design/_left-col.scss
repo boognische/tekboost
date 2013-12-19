@@ -16,7 +16,7 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
         a {
           display: block;
           @include border-radius();
-          padding: 3px 3px 3px 5px;
+          padding: 1px 3px 1px 5px;
           font-weight: bold;
           &:hover, &.active {
             background: #e5e5e5;
@@ -39,6 +39,9 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
             li {
               a {
                 padding-left: 38px;
+                &.active-trail {
+                  background: #e5e5e5;
+                }
               }
             }
           }

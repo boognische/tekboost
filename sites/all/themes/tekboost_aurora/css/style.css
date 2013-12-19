@@ -376,7 +376,7 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  padding: 3px 3px 3px 5px;
+  padding: 1px 3px 1px 5px;
   font-weight: bold;
 }
 .region-2col-sidebar-left .pane-menu-block-1 ul.menu li a:hover, .region-2col-sidebar-left .pane-menu-block-1 ul.menu li a.active {
@@ -398,6 +398,9 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
 }
 .region-2col-sidebar-left .pane-menu-block-1 ul.menu li li li li a {
   padding-left: 38px;
+}
+.region-2col-sidebar-left .pane-menu-block-1 ul.menu li li li li a.active-trail {
+  background: #e5e5e5;
 }
 
 @media print {
