@@ -1,14 +1,48 @@
+ul.menu li, li.expanded, li.collapsed, li.leaf {
+    list-style: none outside none;
+}
 .region-2col-sidebar-left {
   .region-inner {
     padding-left: 6px;
   }
   
   .pane-menu-block-1 {
-    .menu {
+    ul.menu {
       margin: 0;
       padding: 0;
       li {
-      
+        margin: 1px 0;
+        padding: 0;
+        a {
+          display: block;
+          @include border-radius();
+          padding: 3px 3px 3px 5px;
+          font-weight: bold;
+          &:hover, &.active {
+            background: #e5e5e5;
+            color: #000;
+          }
+        }
+        li {
+          margin-bottom: 1px;
+          a {
+            padding-left: 15px;
+            font-weight: normal;
+            &.active-trail {
+              color: #000;
+            }
+          }
+          li {
+            a {
+              padding-left: 25px;
+            }
+            li {
+              a {
+                padding-left: 38px;
+              }
+            }
+          }
+        }
       }
     }
   } 
