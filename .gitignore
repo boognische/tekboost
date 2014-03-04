@@ -2,13 +2,5 @@
 sites/*/settings*.php
 
 # Ignore paths that contain user-generated content.
-cache/
-*/.sass-cache
-*/.sass-cache/*
-.sass-cache
-sites/all/themes/tekboost_aurora/.sass-cache/
 sites/*/files
 sites/*/private
-
-.DS\_Store
-
