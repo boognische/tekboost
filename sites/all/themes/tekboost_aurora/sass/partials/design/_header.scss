@@ -67,4 +67,21 @@
     @include pre(1);
     margin-top: 40px;
   }
+  
+  .pane-views-exp-search-panel-pane-1 {
+    @include span-columns(4 omega,12);
+    @include pre(1);
+    margin-top: 40px;
+    label {
+      display: none;
+    }
+    .views-exposed-widget {
+      margin: 0;
+      padding: 0 0 0 5px;
+      .form-submit {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
 }

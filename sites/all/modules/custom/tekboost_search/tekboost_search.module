@@ -1,0 +1,11 @@
+<?php
+
+function tekboost_search_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form_id);
+  switch($form_id) {
+    case 'views_exposed_form' :
+    case 'search_block_form' :
+      $form['#action'] = '/find';
+      break;
+  }
+}

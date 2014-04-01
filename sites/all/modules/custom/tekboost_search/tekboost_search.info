@@ -1,0 +1,4 @@
+name = Tekboost Search
+description = Custom search changes.
+core = 7.x
+package = Tekboost

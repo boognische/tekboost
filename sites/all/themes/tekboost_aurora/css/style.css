@@ -204,6 +204,26 @@ a:active, a.active {
   margin-left: 8.50622%;
   margin-top: 40px;
 }
+#header .pane-views-exp-search-panel-pane-1 {
+  width: 31.95021%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -20px;
+  display: inline;
+  margin-left: 8.50622%;
+  margin-top: 40px;
+}
+#header .pane-views-exp-search-panel-pane-1 label {
+  display: none;
+}
+#header .pane-views-exp-search-panel-pane-1 .views-exposed-widget {
+  margin: 0;
+  padding: 0 0 0 5px;
+}
+#header .pane-views-exp-search-panel-pane-1 .views-exposed-widget .form-submit {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   margin-top: 0;
