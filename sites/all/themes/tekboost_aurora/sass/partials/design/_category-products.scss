@@ -1,0 +1,23 @@
+.view-category-product-displays {
+  table {
+    width: 100%;
+    tr {
+      width: 100%;
+      td {
+        width: 50%;
+      }
+    }
+  }
+  h2 {
+    font-size: 15px;
+    margin: 3px 0;
+    &:before {
+      content: '\b7\a0';
+    }
+  }
+  /*ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }*/
+}

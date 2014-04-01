@@ -423,6 +423,30 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
   background: #e5e5e5;
 }
 
+.view-category-product-displays {
+  /*ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }*/
+}
+.view-category-product-displays table {
+  width: 100%;
+}
+.view-category-product-displays table tr {
+  width: 100%;
+}
+.view-category-product-displays table tr td {
+  width: 50%;
+}
+.view-category-product-displays h2 {
+  font-size: 15px;
+  margin: 3px 0;
+}
+.view-category-product-displays h2:before {
+  content: '\b7\a0';
+}
+
 @media print {
   body, p {
     color: #464646;
