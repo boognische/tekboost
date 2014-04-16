@@ -115,6 +115,7 @@ a:active, a.active {
 }
 
 #header {
+  position: relative;
   height: 120px;
   background: url("../images/header_bg.png") no-repeat 0 0;
 }
@@ -223,6 +224,12 @@ a:active, a.active {
 #header .pane-views-exp-search-panel-pane-1 .views-exposed-widget .form-submit {
   margin: 0;
   padding: 0;
+}
+
+.pane-block-1 {
+  position: absolute;
+  bottom: 10px;
+  left: 425px;
 }
 
 body {

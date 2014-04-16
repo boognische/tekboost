@@ -1,4 +1,5 @@
 #header {
+  position: relative;
   height: 120px;
   //width: 980;
   background: url('../images/header_bg.png') no-repeat 0 0;
@@ -84,4 +85,10 @@
       }
     }
   }
+}
+
+.pane-block-1 {
+  position: absolute;
+  bottom: 10px;
+  left: 425px;
 }
