@@ -1,0 +1,50 @@
+.page-node-20 {
+  .field-name-body {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    .field-items {
+      padding-right: 20px;
+      h4 {
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .contact-method {
+        padding-left: 120px;
+        margin-bottom: 40px;
+        min-height: 90px;
+        &.hq {
+          background: url('../images/icon_home.png') no-repeat 0 0;
+        }
+        &.email {
+          background: url('../images/icon_email_open.png') no-repeat 0 0;
+        }
+        &.phone {
+          background: url('../images/icon_telephone_blue.png') no-repeat 0 0;
+        }
+        &.chat {
+          background: url('../images/icon_comments.png') no-repeat 0 0;
+        }
+      }
+    }
+  }
+  #webform-client-form-20 {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 20px;
+    > div:first-of-type {
+      border: 1px solid #dedede;
+      padding: 5px;
+    }
+    #webform-component-name {
+      input {
+        width: 85%;
+      }
+    }
+  }
+}
+

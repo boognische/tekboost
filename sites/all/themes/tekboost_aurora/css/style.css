@@ -454,6 +454,52 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
   content: '\b7\a0';
 }
 
+.page-node-20 .field-name-body {
+  display: inline-block;
+  width: 50%;
+  float: left;
+}
+.page-node-20 .field-name-body .field-items {
+  padding-right: 20px;
+}
+.page-node-20 .field-name-body .field-items h4 {
+  margin: 0;
+  padding: 0;
+}
+.page-node-20 .field-name-body .field-items p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.page-node-20 .field-name-body .field-items .contact-method {
+  padding-left: 120px;
+  margin-bottom: 40px;
+  min-height: 90px;
+}
+.page-node-20 .field-name-body .field-items .contact-method.hq {
+  background: url("../images/icon_home.png") no-repeat 0 0;
+}
+.page-node-20 .field-name-body .field-items .contact-method.email {
+  background: url("../images/icon_email_open.png") no-repeat 0 0;
+}
+.page-node-20 .field-name-body .field-items .contact-method.phone {
+  background: url("../images/icon_telephone_blue.png") no-repeat 0 0;
+}
+.page-node-20 .field-name-body .field-items .contact-method.chat {
+  background: url("../images/icon_comments.png") no-repeat 0 0;
+}
+.page-node-20 #webform-client-form-20 {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 20px;
+}
+.page-node-20 #webform-client-form-20 > div:first-of-type {
+  border: 1px solid #dedede;
+  padding: 5px;
+}
+.page-node-20 #webform-client-form-20 #webform-component-name input {
+  width: 85%;
+}
+
 @media print {
   body, p {
     color: #464646;
