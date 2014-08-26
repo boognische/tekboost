@@ -6,6 +6,8 @@ base theme = aurora
 ; Stylesheets
 stylesheets[all][] = css/style.css
 
+scripts[] = javascripts/init.js
+
 ; Panels Layouts
 ; Place all layouts in the "layouts" folder.
 plugins[panels][layouts] = layouts
