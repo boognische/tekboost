@@ -84,7 +84,7 @@ function quote_products_form_alter(&$form, &$form_state, $form_id) {
         
         // Add link to the 'request a quote' form
         $form['actions']['getquote'] = array(
-          '#markup' => l(t('Request Quote'), 'content/request-quote'),
+          '#markup' => l(t('Request Quote'), 'request-quote'),
         );
         //dpm($form);
       }
