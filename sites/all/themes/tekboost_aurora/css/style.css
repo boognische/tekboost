@@ -503,6 +503,9 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
 .mailchimp-lists-user-subscribe-form {
   margin-bottom: 50px;
 }
+.mailchimp-lists-user-subscribe-form .form-type-textfield {
+  display: inline-block;
+}
 
 .mailchimp-newsletter-wrapper {
   margin-bottom: 0;
