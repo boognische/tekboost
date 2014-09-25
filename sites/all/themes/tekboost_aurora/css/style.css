@@ -500,6 +500,18 @@ ul.menu li, li.expanded, li.collapsed, li.leaf {
   width: 85%;
 }
 
+.mailchimp-lists-user-subscribe-form {
+  margin-bottom: 50px;
+}
+
+.mailchimp-newsletter-wrapper {
+  margin-bottom: 0;
+}
+.mailchimp-newsletter-wrapper div:first-child {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
 @media print {
   body, p {
     color: #464646;
