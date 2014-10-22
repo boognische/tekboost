@@ -277,7 +277,7 @@ body {
 .submit-request-quote {
   display: inline-block;
   background: #095cb1;
-  color: #fff;
+  color: #ffffff;
   text-transform: uppercase;
   text-decoration: none;
   padding: 2px 10px;
@@ -288,19 +288,8 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-.submit-request-quote:link {
-  display: inline-block;
-  background: #095cb1;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 2px 10px;
-  margin-left: 4px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+.submit-request-quote:link, .submit-request-quote:active, .submit-request-quote.active, .submit-request-quote:visited {
+  color: #ffffff;
 }
 
 #superfish-1 {

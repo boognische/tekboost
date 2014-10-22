@@ -47,20 +47,16 @@ body {
 .submit-request-quote {
   display: inline-block;
   background: $blue-dark;
-  color: #fff;
+  color: #ffffff;
   text-transform: uppercase;
   text-decoration: none;
   padding: 2px 10px;
   margin-left: 4px;
   @include border-radius(10px);
-  &:link {
-    display: inline-block;
-    background: $blue-dark;
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 2px 10px;
-    margin-left: 4px;
-    @include border-radius(10px);
+  &:link,
+  &:active,
+  &.active,
+  &:visited {
+    color: #ffffff;
   }
 }
