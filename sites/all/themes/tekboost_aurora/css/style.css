@@ -395,6 +395,12 @@ body {
 .pane-menu-menu-connect-with-us .menu li a.twitter {
   background: url("../images/icon-twitter.png") no-repeat 0 0;
 }
+.pane-menu-menu-connect-with-us .menu li a.google-plus {
+  background: url("../images/icon-googleplus.png") no-repeat 0 0;
+}
+.pane-menu-menu-connect-with-us .menu li a.spiceworks {
+  background: url("../images/icon-spiceworks.png") no-repeat 0 0;
+}
 .pane-menu-menu-connect-with-us .menu li a.newsletter {
   background: url("../images/icon-newsletter.png") no-repeat 0 0;
 }
