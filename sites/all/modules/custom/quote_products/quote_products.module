@@ -81,6 +81,8 @@ function quote_products_form_alter(&$form, &$form_state, $form_id) {
       if($quote_products) { // Cart has line items ID'd as quotable products
         // Remove access to the checkout button
         $form['actions']['checkout']['#access'] = FALSE;
+        // Unset the suffix which contains paypal express checkout form
+        $form['#suffix'] = '';
         
         // Add link to the 'request a quote' form
         $form['actions']['getquote'] = array(
